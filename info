@@ -1,0 +1,19 @@
+A címbetű: CervoNeue-NeueBold (Roboto mediummal helyettesítve a mintán), 52 pontos méret, 52-es sorköz, színe: #040404
+Alcím: CervoNeue-NeueBold, 24 pontos méret, 29-es sorköz, színe: #040404
+szerző: SegoeUI, 18 pontos, 25-ös sorköz, színe: #ff3232, 700-as vastagság
+kiemelés: Georgia, 20 pontos, 28-as sorköz, szín:  #040404
+kenyérbetű: Georgia, 18 pontos, 32-es sorköz
+közcím: CervoNeue-NeueBold, 32 pontos méret, 38-as sorköz
+
+A térkép és a diagram fölötti cím alcím formátumú
+A térképben a tónusskála magyarázata
++ a térkép alatti timeline évszámai
++ a diagram x tengelyének évszámai: Segoe UI regular 16 pont, #818181
+
+diagram:
+x-tengely: 0,5 pontos fekete
+x-tengelyen az osztások: 0,5 pont, fekete, 5 px magas
+y-tengely: nincs
+segédvonalak: 0,5 pont, szaggatott lénia, #666666
+vonalak: alapból: 2 pont, #b3b3b3
+kiemelt vonal: 4 pont, #fe3131 (ez az eurozine piros)
