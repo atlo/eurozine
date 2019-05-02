@@ -1,7 +1,23 @@
-*,
-*:before,
-*:after {
+#atlo *,
+#atlo *:before,
+#atlo *:after {
   box-sizing: border-box;
+}
+
+#atlo ol, #atlo ul {
+	list-style: none;
+}
+#atlo blockquote, #atlo q {
+	quotes: none;
+}
+#atlo blockquote:before, #atlo blockquote:after,
+#atlo q:before, #atlo q:after {
+	content: '';
+	content: none;
+}
+#atlo table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 @font-face {
@@ -9,38 +25,36 @@
   src: url('fonts/GEORGIA.TTF');
 }
 
-body {
+#atlo {
   font-family: 'Georgia';
   line-height: 1.5;
 }
 
-p {
+#atlo p {
   margin: 15px 0;
 }
 
-ul {
+#atlo ul {
+  margin: 0;
   list-style: none;
+  padding: 0;
 }
 
-h1 {
+#atlo h1 {
   font-size: 52px;
 }
 
-h2 {
+#atlo h2 {
   font-size: 24px;
 }
 
-h3 {
-  
-}
-
-button {
+#atlo button {
   background: none;
   border: 0;
   cursor: pointer;
 }
 
-.container {
+#atlo.container {
   position: relative;
   width: 100%;
   max-width: 576px;
@@ -48,24 +62,24 @@ button {
   overflow: hidden;
 }
 
-.map {
+#atlo .map {
   position: relative;
 }
 
-.call-to-action {
+#atlo .call-to-action {
   position: absolute;
 }
 
-.call-to-action svg {
+#atlo .call-to-action svg {
   width: 17px;
 }
 
-.viz-container {
+#atlo .viz-container {
   position: relative;
 }
 
-.viz-info,
-.country-info {
+#atlo .viz-info,
+#atlo .country-info {
   position: absolute;
   z-index: 3;
   display: none;
@@ -78,61 +92,63 @@ button {
   padding: 0 5px;
 }
 
-.viz-info {
+#atlo .viz-info {
   width: auto;
   padding: 0 10px;
   text-align: center;
 }
 
-.viz-info.active,
-.country-info.active {
+#atlo .viz-info.active,
+#atlo .country-info.active {
   display: flex;
 }
 
-.map-2 .country-info {
+#atlo .map-2 .country-info {
   text-align: center;
 }
 
-.country-joined-at {
+#atlo .country-joined-at {
   color: #fe3030;
   font-weight: bold;
 }
 
-.country {
+#atlo .country {
   position: relative;
   transition: fill .3s;
 }
 
-.map-1 .country {
+#atlo .map-1 .country {
   cursor: pointer;
 }
 
-.map-1 .st1 {
+#atlo .map-1 .st1 {
   stroke: none;
 }
 
-.st0.country,
-.country.selectable {
+#atlo .st0.country,
+#atlo .country.selectable {
   fill: #1d1d1b;
   stroke: white;
 }
 
-.country.hover,
-.country.selected {
+#atlo .country.hover,
+#atlo .country.selected {
   fill: #fe3030;
 }
 
-.categories {
+#atlo .categories {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.categories li {
+#atlo .categories li {
   margin-bottom: 20px;
+  width: 49%;
+  max-width: 275px;
 }
 
-.categories svg {
+#atlo .categories svg {
   display: block;
   flex-shrink: 0;
   width: 80px;
@@ -141,10 +157,10 @@ button {
   border-radius: 50%;
 }
 
-.categories button {
+#atlo .categories button {
   display: flex;
   align-items: center;
-  width: 275px;
+  width: 100%;
   height: 125px;
   background: #E3E3E3;
   border: 0;
@@ -153,18 +169,18 @@ button {
   transition: all .3s;
 }
 
-.categories button:hover {
+#atlo .categories button:hover {
   background: #FFE9D2;
 }
 
-.categories svg .st0{fill-rule:evenodd;clip-rule:evenodd;fill:white;transition: all .3s;}
-.categories svg .st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
-.categories svg .st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
-.categories svg .st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+#atlo .categories svg .st0{fill-rule:evenodd;clip-rule:evenodd;fill:white;transition: all .3s;}
+#atlo .categories svg .st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+#atlo .categories svg .st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
+#atlo .categories svg .st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
-.categories button:hover .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FF931E;}
+#atlo .categories button:hover .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FF931E;}
 
-.categories p {
+#atlo .categories p {
   color: #1c1c1c;
   font-family: 'Georgia';
   font-size: 20px;
@@ -176,17 +192,17 @@ button {
   margin: 25px 0;
 }
 
-.years .form-group {
+#atlo .years .form-group {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.years input {
+#atlo .years input {
   display: none;
 }
 
-.years svg {
+#atlo .years svg {
   position: absolute;
   z-index: 1;
   top: 8px;
@@ -195,14 +211,14 @@ button {
   height: 1px;
 }
 
-.years label {
+#atlo .years label {
   position: relative;
   z-index: 2;
   cursor: pointer;
   text-align: center;
 }
 
-.years label span {
+#atlo .years label span {
   display: block;
   width: 17px;
   height: 17px;
@@ -213,34 +229,34 @@ button {
   transition: all .3s;
 }
 
-.years input:checked + label span {
+#atlo .years input:checked + label span {
   border-color: #fe3030;
   background-color: #fe3030;
 }
 
-.countries {
+#atlo .countries {
   margin: 25px -5px 25px 0;
 }
 
-.countries .form-group {
+#atlo .countries .form-group {
   display: flex;
   flex-wrap: wrap;
 }
 
-.select {
+#atlo .select {
   position: relative;
   display: inline-block;
   margin-bottom: 15px;
 }
 
-.select .st0{fill:white;}
-.select svg {
+#atlo .select .st0{fill:white;}
+#atlo .select svg {
   position: absolute;
   right: 0;
   width: 25px;
 }
 
-.select-options {
+#atlo .select-options {
   position: absolute;
   z-index: 1;
   display: none; 
@@ -250,7 +266,7 @@ button {
   background: white;
 }
 
-.select button {
+#atlo .select button {
   display: flex;
   align-items: center;
   min-width: 150px;
@@ -260,21 +276,21 @@ button {
   padding-right: 30px;
 }
 
-.select-options li {
+#atlo .select-options li {
   color: #CCCCCC;
   cursor: pointer;
   font-size: 18px;
 }
 
-.select-options.active {
+#atlo .select-options.active {
   display: block;
 }
 
-.countries input {
+#atlo .countries input {
   display: none;
 }
 
-.countries label {
+#atlo .countries label {
   display: block;
   width: 140px;
   height: 30px;
@@ -290,41 +306,41 @@ button {
   transition: all .3s;
 }
 
-.countries label:hover {
+#atlo .countries label:hover {
   background: #CCCCCC;
 }
 
-.countries input:checked + label {
+#atlo .countries input:checked + label {
   color: white;
 }
 
-.countries input.first + label {
+#atlo .countries input.first + label {
   background: #CD19F9;
   border-color: #CD19F9;
 }
 
-.countries input.second + label {
+#atlo .countries input.second + label {
   background: #FE8E31;
   border-color: #FE8E31;
 }
 
-.countries input.third + label {
+#atlo .countries input.third + label {
   background: #1284CC;
   border-color: #1284CC;
 }
 
-.levels {
+#atlo .levels {
   position: absolute;
 }
 
-.levels li {
+#atlo .levels li {
   display: flex;
   margin-bottom: 10px;
   color: #898989;
   line-height: 30px;
 }
 
-.levels span {
+#atlo .levels span {
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -333,153 +349,157 @@ button {
   transition: background-color .3s;
 }
 
-.levels-line .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#CCCCCC;}
-.levels-line .st1{fill:none;stroke:#FFFFFF;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8637;}
+#atlo .levels-line .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#CCCCCC;}
+#atlo .levels-line .st1{fill:none;stroke:#FFFFFF;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8637;}
 
-.select {
+#atlo .select {
   font-size: 24px;
 }
 
 
-.map-2 .st0.country {
+#atlo .map-2 .st0.country {
   transition: fill .3s;
 }
 
-.map-2 .st1.country {
+#atlo .map-2 .st1.country {
   fill: transparent;
 }
 
-.level-1 span {
+#atlo .level-1 span {
   background-color: #ffd5d6;
 }
 
-.map-2 .country {
+#atlo .map-2 .country {
   fill: #8e8e8e;
 }
 
-.map-2 .country.level-1 {
+#atlo .map-2 .country.level-1 {
   fill: #ffd5d6
 }
 
-.level-2 span {
+#atlo .level-2 span {
   background-color: #ffaead;
 }
 
-.map-2 .country.level-2 {
+#atlo .map-2 .country.level-2 {
   fill: #ffaead
 }
 
-.level-3 span {
+#atlo .level-3 span {
   background-color: #ff8383;
 }
 
-.map-2 .country.level-3 {
+#atlo .map-2 .country.level-3 {
   fill: #ff8383
 }
 
-.level-4 span {
+#atlo .level-4 span {
   background-color: #fe5a59;
 }
 
-.map-2 .country.level-4 {
+#atlo .map-2 .country.level-4 {
   fill: #fe5a59
 }
 
-.level-5 span {
+#atlo .level-5 span {
   background-color: #fe3131;
 }
 
-.map-2 .country.level-5 {
+#atlo .map-2 .country.level-5 {
   fill: #fe3131
 }
 
-.graph .labels.x-labels {
+#atlo .graph .labels.x-labels {
   text-anchor: middle;
 }
 
-.graph .labels.y-labels {
+#atlo .graph .labels.y-labels {
   text-anchor: end;
 }
 
-.graph .viz {
+#atlo .graph .viz {
   height: 380px;
-  width: 570px;
+  width: 100%;
 }
 
-.graph .grid {
+#atlo .graph .grid {
   stroke: #1c1c1c;
   stroke-dasharray: 0;
   stroke-width: 1;
   transition: all 1s;
 }
 
-.graph .grid.dotted {
+#atlo .graph .grid.dotted {
   stroke-dasharray: 5, 5;
   stroke-width: .5px
 }
 
-.labels {
+#atlo .labels {
   font-size: 13px;
 }
 
-.label-title {
+#atlo .label-title {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 12px;
   fill: black;
 }
 
-.graph .grid.country {
+#atlo .graph .grid.country {
   stroke: #e6e6e6;
   stroke-dasharray: 0;
   stroke-width: 2;
 }
 
-.grid.country.selected {
+#atlo .grid.country.selected {
   stroke-width: 4;
 }
 
-.grid.clone.selected {
+#atlo .grid.clone.selected {
   stroke-width: 6;
   stroke: #fe3030;
 }
 
-.graph .grid.country.first {
+#atlo .graph .grid.country.first {
   stroke: #CD19F9;
 }
 
-.graph .grid.country.second {
+#atlo .graph .grid.country.second {
   stroke: #FE8E31;
 }
 
-.graph .grid.country.third {
+#atlo .graph .grid.country.third {
   stroke: #1284CC;
 }
 
 
-.inline {
+#atlo .inline {
   display: flex;
-  width: 1152px;
+  width: 200%;
 }
 
-.page-1,
-.page-2 {
-  max-width: 576px;
+#atlo .page-1,
+#atlo .page-2 {
   width: 100%;
   transition: transform .5s;
 }
 
-.page-1,
-.page-2.active {
-  transform: translateX(-576px)
+#atlo .mobile .page-1,
+#atlo .mobile .page-2 {
+  max-width: 320px;
 }
 
-.page-1.active,
-.page-2 {
+#atlo .page-1,
+#atlo .page-2.active {
+  transform: translateX(-100%)
+}
+
+#atlo .page-1.active,
+#atlo .page-2 {
   transform: translateX(0px)
 }
 
-.page-2 .back-button {
+#atlo .page-2 .back-button {
   width: 90px;
   height: 48px;
   margin: 25px 0;
@@ -489,14 +509,14 @@ button {
 }
 
 /* .page-2 .back-button .st0{fill:#FFFFFF;stroke:#1D1D1B;stroke-width:0.5;stroke-miterlimit:10;}
-.page-2 .back-button .st1{fill:none;stroke:#4D4D4D;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-.page-2 .back-button .st2{fill:#4D4D4D;} */
+#atlo .page-2 .back-button .st1{fill:none;stroke:#4D4D4D;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+#atlo .page-2 .back-button .st2{fill:#4D4D4D;} */
 
-.page-2 .back-button .st0{fill:#FFFFFF;}
-.page-2 .back-button .st1{font-family:'SegoeUI-Bold';}
-.page-2 .back-button .st2{font-size:16px;}
+#atlo .page-2 .back-button .st0{fill:#FFFFFF;}
+#atlo .page-2 .back-button .st1{font-family:'SegoeUI-Bold';}
+#atlo .page-2 .back-button .st2{font-size:16px;}
 
-.page-2 .map-2 .back-button {
+#atlo .page-2 .map-2 .back-button {
   position: absolute;
   top: calc(50% - 45px);
   left: 0;
@@ -504,11 +524,41 @@ button {
   height: 90px;
 }
 
-.page-2 .map-2 .back-button svg {
+#atlo .page-2 .map-2 .back-button svg {
   width: 100%;
   height: 100%;
 }
 
-.page-2 .map-2 .back-button .st0{fill:#E6E6E6;stroke: none;transition: all .3s;}
-.page-2 .map-2 .back-button .st1{fill:#FFFFFF;stroke: none;}
-.page-2 .map-2 .back-button:hover .st0{fill:black;}
+#atlo .page-2 .map-2 .back-button .st0{fill:#E6E6E6;stroke: none;transition: all .3s;}
+#atlo .page-2 .map-2 .back-button .st1{fill:#FFFFFF;stroke: none;}
+#atlo .page-2 .map-2 .back-button:hover .st0{fill:black;}
+
+@media (max-width: 575px) {
+  #atlo .levels li {
+    line-height: 15px;
+  }
+
+  #atlo .levels span {
+    width: 15px;
+    height: 15px;
+  }
+
+  #atlo .page-2 .map-2 .back-button {
+    top: calc(50% - 30px);
+    width: 30px;
+    height: 60px;
+  }
+
+  #atlo .categories li {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #atlo .countries .form-group {
+    justify-content: space-between;
+  }
+
+  #atlo .countries label {
+    width: 45%;
+  }
+}
