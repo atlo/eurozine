@@ -60,21 +60,37 @@ button {
   width: 17px;
 }
 
+.viz-container {
+  position: relative;
+}
+
+.viz-info,
 .country-info {
   position: absolute;
+  z-index: 3;
   display: none;
   align-items: center;
   justify-content: center;
-  width: 170px;
-  height: 55px;
   background: white;
   border: 1px solid #b9b9b9;
   font-size: 14px;
   line-height: 1;
+  padding: 0 5px;
 }
 
+.viz-info {
+  width: auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.viz-info.active,
 .country-info.active {
   display: flex;
+}
+
+.map-2 .country-info {
+  text-align: center;
 }
 
 .country-joined-at {
@@ -85,6 +101,10 @@ button {
 .country {
   position: relative;
   transition: fill .3s;
+}
+
+.map-1 .country {
+  cursor: pointer;
 }
 
 .map-1 .st1 {
@@ -126,7 +146,7 @@ button {
   align-items: center;
   width: 275px;
   height: 125px;
-  background: none;
+  background: #E3E3E3;
   border: 0;
   padding: 15px;
   text-align-last: left;
@@ -137,13 +157,10 @@ button {
   background: #FFE9D2;
 }
 
-.categories svg .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#E6E6E6;stroke-width: 0;transition: all .3s;}
-.categories svg .st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;transition: all .3s;}
-.categories svg .st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;transition: all .3s;}
-.categories svg .st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;transition: all .3s;}
-.categories svg .st4{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;transition: all .3s;}
-.categories svg .st1{font-family:'Georgia';}
-.categories svg .st2{font-size:20px;}
+.categories svg .st0{fill-rule:evenodd;clip-rule:evenodd;fill:white;transition: all .3s;}
+.categories svg .st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+.categories svg .st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
+.categories svg .st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 
 .categories button:hover .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FF931E;}
 
@@ -212,19 +229,22 @@ button {
 
 .select {
   position: relative;
+  display: inline-block;
   margin-bottom: 15px;
 }
 
-.select .st0{fill:none;stroke:#999999;stroke-miterlimit:10;}
+.select .st0{fill:white;}
 .select svg {
+  position: absolute;
+  right: 0;
   width: 25px;
-  margin-left: 5px;
 }
 
 .select-options {
   position: absolute;
   z-index: 1;
   display: none; 
+  width: 100%;
   padding: 10px;
   padding-top: 0;
   background: white;
@@ -233,12 +253,16 @@ button {
 .select button {
   display: flex;
   align-items: center;
+  min-width: 150px;
+  width: auto;
   font-size: 18px;
   font-weight: bold;
+  padding-right: 30px;
 }
 
 .select-options li {
   color: #CCCCCC;
+  cursor: pointer;
   font-size: 18px;
 }
 
@@ -252,7 +276,7 @@ button {
 
 .countries label {
   display: block;
-  width: 110px;
+  width: 140px;
   height: 30px;
   margin-bottom: 5px;
   margin-right: 5px;
@@ -275,8 +299,8 @@ button {
 }
 
 .countries input.first + label {
-  background: #fe3030;
-  border-color: #fe3030;
+  background: #CD19F9;
+  border-color: #CD19F9;
 }
 
 .countries input.second + label {
@@ -318,7 +342,6 @@ button {
 
 
 .map-2 .st0.country {
-  fill: #fe3131;
   transition: fill .3s;
 }
 
@@ -328,6 +351,10 @@ button {
 
 .level-1 span {
   background-color: #ffd5d6;
+}
+
+.map-2 .country {
+  fill: #8e8e8e;
 }
 
 .map-2 .country.level-1 {
@@ -412,8 +439,13 @@ button {
   stroke-width: 4;
 }
 
-.graph .grid.country.first {
+.grid.clone.selected {
+  stroke-width: 6;
   stroke: #fe3030;
+}
+
+.graph .grid.country.first {
+  stroke: #CD19F9;
 }
 
 .graph .grid.country.second {
@@ -432,7 +464,8 @@ button {
 
 .page-1,
 .page-2 {
-  width: 576px;
+  max-width: 576px;
+  width: 100%;
   transition: transform .5s;
 }
 
@@ -447,16 +480,21 @@ button {
 }
 
 .page-2 .back-button {
-  width: 100px;
+  width: 90px;
+  height: 48px;
   margin: 25px 0;
   border: 0;
   background: none;
   padding: 0;
 }
 
-.page-2 .back-button .st0{fill:#FFFFFF;stroke:#1D1D1B;stroke-width:0.5;stroke-miterlimit:10;}
+/* .page-2 .back-button .st0{fill:#FFFFFF;stroke:#1D1D1B;stroke-width:0.5;stroke-miterlimit:10;}
 .page-2 .back-button .st1{fill:none;stroke:#4D4D4D;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-.page-2 .back-button .st2{fill:#4D4D4D;}
+.page-2 .back-button .st2{fill:#4D4D4D;} */
+
+.page-2 .back-button .st0{fill:#FFFFFF;}
+.page-2 .back-button .st1{font-family:'SegoeUI-Bold';}
+.page-2 .back-button .st2{font-size:16px;}
 
 .page-2 .map-2 .back-button {
   position: absolute;
@@ -471,5 +509,6 @@ button {
   height: 100%;
 }
 
-.page-2 .map-2 .back-button .st0{fill:#E6E6E6;stroke: none;}
+.page-2 .map-2 .back-button .st0{fill:#E6E6E6;stroke: none;transition: all .3s;}
 .page-2 .map-2 .back-button .st1{fill:#FFFFFF;stroke: none;}
+.page-2 .map-2 .back-button:hover .st0{fill:black;}
