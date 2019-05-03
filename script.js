@@ -340,13 +340,16 @@ function getRelativeMousePosition (event, element) {
   const baseLeft = position.x - offset.left
   const baseTop = position.y - offset.top
 
+  const minLeftPosition = element.offsetWidth * 0.06
+  const maxLeftPosition = element.offsetWidth * 0.8333
+
   let left = 0
   let top = baseTop < 75 ? 75 : baseTop
   
-  if (baseLeft < 100) {
-    left = 100
-  } else if (baseLeft > 480) {
-    left = 480
+  if (baseLeft < minLeftPosition) {
+    left = minLeftPosition
+  } else if (baseLeft > maxLeftPosition) {
+    left = maxLeftPosition
   } else {
     left = baseLeft
   }
@@ -578,6 +581,8 @@ function slugify (text) {
 }
 
 function yearChangeHandler () {
+  document.querySelector('#atlo .map-2 .country-info')
+    .classList.remove('active')
   const year = parseInt(event.target.value)
   const selectedCountries = selectedCategory.years
     .filter(i => i.year === year && i.number) 
@@ -619,6 +624,7 @@ function yearChangeHandler () {
       .forEach(element => {
         element.addEventListener('mouseenter', showCountryInfo)
         element.addEventListener('mouseleave', hideCountryInfo)
+        element.addEventListener('click', showCountryInfo)
       })
 }
 
@@ -812,7 +818,11 @@ function renderCountryLines (years, levels) {
     Array.from(document.querySelectorAll('#atlo .grid.country'))
       .forEach(element => {
         element.addEventListener('mouseenter', highlightLine)
+        element.addEventListener('click', highlightLine)
       })
+
+    Array.from(document.querySelectorAll('#atlo .grid.country line'))
+      .forEach(element => element.addEventListener('click', showGraphInfo))
   })
 }
 
@@ -831,6 +841,7 @@ function highlightLine (event) {
     .forEach(el => {
       el.addEventListener('mouseenter', addMouseMoveEvent)
       el.addEventListener('mouseleave', removeMouseMoveEvent)
+      el.addEventListener('click', showGraphInfo)
     })
   
   line.closest('g').parentNode.appendChild(clone)
@@ -847,11 +858,12 @@ function removeMouseMoveEvent (event) {
 function showGraphInfo (event) {
   const {target} = event
 
-  const {left, top} = getRelativeMousePosition(event, vizContainer)
   const {name} = countries.find(country => country.slug === target.closest('g').classList[2])
   
   vizCountryName.innerHTML = name
   vizLineNumber.innerHTML = target.dataset.number
+
+  const {left, top} = getRelativeMousePosition(event, vizContainer, vizInfo)
   vizInfo.style.left = `${left - 30}px`
   vizInfo.style.top = `${top - 75}px`
   vizInfo.classList.add('active')
