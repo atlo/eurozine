@@ -544,9 +544,9 @@
   }
 
   #atlo .page-2 .map-2 .back-button {
-    top: calc(50% - 30px);
-    width: 30px;
-    height: 60px;
+    top: calc(65%);
+    width: 25px;
+    height: 55px;
   }
 
   #atlo .categories li {
