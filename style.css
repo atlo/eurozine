@@ -522,7 +522,7 @@
 
 #atlo .page-2 .map-2 .back-button {
   position: absolute;
-  top: calc(50% - 45px);
+  top: 50%;
   left: 0;
   width: 35px;
   height: 90px;
@@ -537,7 +537,7 @@
 #atlo .page-2 .map-2 .back-button .st1{fill:#FFFFFF;stroke: none;}
 #atlo .page-2 .map-2 .back-button:hover .st0{fill:black;}
 
-@media (max-width: 575px) {
+@media (max-width: 639px) {
   #atlo .levels li {
     line-height: 15px;
   }
@@ -559,12 +559,12 @@
   }
 
   #atlo .categories button p {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   #atlo .categories button svg {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
   }
 
@@ -575,4 +575,8 @@
   #atlo .countries label {
     width: 45%;
   }
+}
+
+.copy .atlo ul > li::before {
+  display: none !important;
 }
